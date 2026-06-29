@@ -59,3 +59,7 @@ export const MENU = [
         path: "/categories"
     }
 ]
+
+
+export const cloudy_name = "danhe48za";
+export const upload_preset = "VIET123";

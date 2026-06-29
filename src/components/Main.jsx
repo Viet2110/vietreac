@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { IoWaterOutline } from "react-icons/io5";
 import { RiGeminiFill } from "react-icons/ri";
 import { FaBatteryFull } from "react-icons/fa";
@@ -12,16 +12,18 @@ import { FaMemory } from "react-icons/fa6";
 import { MdPhoneAndroid } from "react-icons/md";
 import { IoShieldCheckmarkOutline } from "react-icons/io5";
 import { PRODUCTS } from '../utils/Contants';
+import { ProductContext } from '../contexts/ProductProvider';
 
 
 function Main(props) {
+    const {products} = useContext(ProductContext);
     return (
         <body className='bg-gray-300'>
             <div className='mx-20 my-5 p-5 rounded-2xl bg-white'>
                 <p className='font-bold text-4xl'>Chọn thiết bị lên đời cho mọi trận cầu</p>
                 <div className='grid lg:grid-cols-5 md:grid-cols-3 grid-cols-2 mt-3 gap-3 '>
                     {
-                        PRODUCTS.map((item, index) => (
+                        products.map((item, index) => (
                             <div className="col-span-1 rounded-2xl hover:shadow-2xl ">
                                 <div className='py-8 px-3'>
                                     <div className='flex items-center gap-6 h-50'>
@@ -42,11 +44,11 @@ function Main(props) {
                                         </div>
                                     </div>
                                     <div className='mt-3'>
-                                        <button className='bg-gray-200 border-0 px-2 rounded-3xl'>Trả góp 0%</button>
-                                        <h6 className='line-through mt-2'>{item.originalPrice}</h6>
+                                        <button className='bg-gray-200 border-0 px-2 rounded-3xl'>{item.id}</button>
+                                        <h6 className='mt-2'>{item.id}</h6>
                                         <h4 className='font-bold text-2xl'>{item.price}</h4>
-                                        <p className='text-green-400'>{item.sale}</p>
-                                        <p className='mt-4'>{item.productname}</p>
+                                        <p className='text-green-400'>{item.categoryId}</p>
+                                        <p className='mt-4'>{item.Action}</p>
                                     </div>
                                 </div>
                             </div>
